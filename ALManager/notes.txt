@@ -1,0 +1,4 @@
+Komendy użyte przy projekcie:
+$ ng g c components/create-post --skip-tests -> tworzy nowy komponent o nazwie create-post w podfolderze components z pominięciem testów
+
+$ ng g s services/auth-guard --skip-tests -> tworzy nowy serwis o nazwie auth-guard w folderze services z pominięciem testów

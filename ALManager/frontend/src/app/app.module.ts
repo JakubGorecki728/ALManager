@@ -17,14 +17,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
-import { HomeComponent } from './components/home/home.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
 
 import { AuthInterceptorService } from './services/auth-interceptor.service';
-import { ProductsManagerComponent } from './components/products-manager/products-manager.component';
-import { AssemblyLinesManagerComponent } from './components/assembly-lines-manager/assembly-lines-manager.component';
-import { WorkstationsManagerComponent } from './components/workstations-manager/workstations-manager.component';
 
 
 @NgModule({
@@ -33,12 +29,8 @@ import { WorkstationsManagerComponent } from './components/workstations-manager/
     NavigationComponent,
     SignupComponent,
     LoginComponent,
-    HomeComponent,
     PostsComponent,
     CreatePostComponent,
-    ProductsManagerComponent,
-    AssemblyLinesManagerComponent,
-    WorkstationsManagerComponent,
   ],
   imports: [
     BrowserModule,

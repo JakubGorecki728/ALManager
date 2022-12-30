@@ -1,0 +1,21 @@
+<app-create-post (create)="createPost()"></app-create-post>
+
+<mat-card *ngFor="let post of posts$ | async">
+    <div class="textcontainer">
+        <div class="post-title">
+        {{post.title}}
+        </div>
+        <div class="post-meta">
+        {{post.created}}
+        </div>
+        <div class="post-body">
+        {{post.body}}
+        </div>
+    </div>
+
+    <div class="buttoncontainer">
+        <button (click)="delete(post.id)" class="button" mat-icon-button>
+            <mat-icon color="warn">delete</mat-icon>
+            </button>
+    </div>
+</mat-card>

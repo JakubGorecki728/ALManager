@@ -1,15 +1,31 @@
 <mat-toolbar color="accent">
     <span>
-       
-    </span>
+        <a 
+        *ngIf="isAuthenticated"
+        routerLinkActive="active-link" routerLink="/products">
+            <span>Products</span>
+        </a>
+        
+        <a 
+        *ngIf="isAuthenticated"
+        routerLinkActive="active-link" routerLink="/assembly-lines">
+            <span>Assembly lines</span>
+        </a>
 
-    <span>
+        <a 
+        *ngIf="isAuthenticated"
+        routerLinkActive="active-link" routerLink="/workstations">
+            <span>Workstations</span>
+        </a>
+
         <a 
         *ngIf="isAuthenticated"
         routerLinkActive="active-link" routerLink="/posts">
             <span>Posts</span>
         </a>
+    </span>
 
+    <span>
         <a 
         *ngIf="!isAuthenticated"
         routerLinkActive="active-link" routerLink="/login">

@@ -1,1 +1,24 @@
-<p>products works!</p>
+<app-add-product (create)="addProduct()"></app-add-product>
+
+<mat-card *ngFor="let product of products$ | async">
+    <div class="textcontainer">
+        <div class="textsubcontainer">
+            <div class="label">Product name:</div>
+            <div class="product-data">
+                {{product.name}}
+            </div>
+        </div>
+
+        <div class="textsubcontainer">
+            <div class="label">Product id:</div>
+            <div class="product-data">
+            {{product.id}}
+            </div>
+        </div>
+    </div>
+    <div class="buttoncontainer">
+        <button (click)="delete(product.id)" class="button" mat-icon-button>
+            <mat-icon color="warn">delete</mat-icon>
+            </button>
+    </div>
+</mat-card>

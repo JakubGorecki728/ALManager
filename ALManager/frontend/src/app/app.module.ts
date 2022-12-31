@@ -24,6 +24,7 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { WorkstationsComponent } from './components/workstations/workstations.component';
 import { AssemblyLinesComponent } from './components/assembly-lines/assembly-lines.component';
 import { ProductsComponent } from './components/products/products.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { ProductsComponent } from './components/products/products.component';
     WorkstationsComponent,
     AssemblyLinesComponent,
     ProductsComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,

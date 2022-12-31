@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -57,7 +57,7 @@ export class AuthService {
           localStorage.setItem("token", tokenObject.token);
           this.isUserLoggedIn$.next(true);
           this.router.navigate(["posts"]);
-        }),
+        }), 
       catchError(
         this.errorHandlerService.handleError<TokenAndId>("login")
       )

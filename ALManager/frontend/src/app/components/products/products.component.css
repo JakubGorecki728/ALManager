@@ -1,0 +1,38 @@
+mat-card {
+    margin-bottom: 1em;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 100%;
+  
+}
+
+.buttoncontainer {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.textcontainer {
+    width: 80%;
+}
+
+div {
+    word-wrap: break-word;
+}
+
+.label {
+    font-size: small;
+    margin: 1em;
+}
+
+.textsubcontainer {
+    display: flex;
+    flex-direction: row;
+}
+
+div {
+    border: 1px solid black;
+}

@@ -2,3 +2,13 @@ Komendy użyte przy projekcie:
 $ ng g c components/create-post --skip-tests -> tworzy nowy komponent o nazwie create-post w podfolderze components z pominięciem testów
 
 $ ng g s services/auth-guard --skip-tests -> tworzy nowy serwis o nazwie auth-guard w folderze services z pominięciem testów
+
+Odpowiedź autora w kwestii wylogowania przy odświeżeniu strony:
+Hi Julian, thanks for watching. The login method in the auth service sets the jwt in local storage. isUserLoggedIn$ is 
+initially set to false. You could implement the ngOnInit lifecycle method and check if the token exists in local storage, 
+nd if it does, you could call next on the isUserLoggedIn$ subject. I've done this in my latest LinkedIn Clone project, 
+which also uses Angular, you could check the code out on my GitHub (link in description) if you need help. 
+The logic is - getting a token from local storage - check it hasn't expired - then set the next subject. 
+The subscriptions to the subject then should propagate the correct values throughout your codebase i.e. to the nav bar. 
+Thanks for pointing this out. Surprised I missed this, it has been some time since I created this, and just had a quick 
+look at the repo. Hope that helps!

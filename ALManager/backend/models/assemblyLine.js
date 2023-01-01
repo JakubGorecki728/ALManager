@@ -23,4 +23,9 @@ module.exports = class AssemblyLine {
     static changeState(id) {
         return db.execute('UPDATE assembly_lines SET active = NOT active WHERE id = ?', [id])
     }
+
+    static assignProduct(id, product_id) {
+        product_id == 0 ? product_id = null: "";
+        return db.execute('UPDATE assembly_lines SET product_id = ? WHERE id = ?', [product_id, id])
+    }
 };

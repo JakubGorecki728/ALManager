@@ -55,4 +55,13 @@ export class AssemblyLineService {
       catchError(this.errorHandlerService.handleError<AssemblyLine>("changeStateAssemblyLine"))
     )
   }
+
+  assignProduct(assemblyLineId: number, productId: number): Observable<{}> {
+    return this.http
+    .put<AssemblyLine>(`${this.url}/${assemblyLineId}/${productId}`, this.httpOptions)
+    .pipe(
+      first(),
+      catchError(this.errorHandlerService.handleError<AssemblyLine>("assignProduct"))
+    )
+  }
 }

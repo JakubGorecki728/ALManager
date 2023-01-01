@@ -46,3 +46,7 @@ div {
 #inactive {
     color: red;
 }
+
+#changeStateButton {
+    min-width: 120px;
+}

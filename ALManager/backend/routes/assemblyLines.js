@@ -24,4 +24,7 @@ router.delete(
 router.put(
         '/:id', auth, assemblyLinesController.changeStateAssemblyLine);
 
+router.put(
+        '/:id/:product_id', auth, assemblyLinesController.assignProduct);
+
 module.exports = router;

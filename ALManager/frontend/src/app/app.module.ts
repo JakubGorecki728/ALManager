@@ -14,12 +14,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
+
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
-
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { WorkstationsComponent } from './components/workstations/workstations.component';
 import { AssemblyLinesComponent } from './components/assembly-lines/assembly-lines.component';

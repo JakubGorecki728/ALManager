@@ -29,16 +29,35 @@
             </div>
         </div>
 
+        <div class="textsubcontainer">
+            <div class="label">Assigned product id:</div>
+            <div class="assembly-line-data">
+            {{assemblyLine.product_id}}
+            </div>
+        </div>
+
     </div>
 
     <div class="buttoncontainer">
-        <button (click)="changeState(assemblyLine.id)" color="accent" mat-raised-button>
-            <span>change<br>state</span>
+        <button (click)="changeState(assemblyLine.id)" color="accent" mat-raised-button id="changeStateButton">
+            <span *ngIf="assemblyLine.active==true; else elseBlock2">deactivate</span>
+            <ng-template #elseBlock2> 
+                <span #elseBlock2>activate</span>
+            </ng-template>
+         </button>
+
+         <button (click)="assignProduct(assemblyLine.id, 46)" color="accent" mat-raised-button id="changeStateButton">
+            <span>assign product</span>
+         </button>
+
+         <button (click)="removeProductAssignment(assemblyLine.id)" color="accent" mat-raised-button id="changeStateButton">
+            <span>remove assignment</span>
          </button>
 
         <button (click)="delete(assemblyLine.id)" class="button" mat-icon-button>
             <mat-icon color="warn">delete</mat-icon>
             </button>
+
     </div>
 
 </mat-card>

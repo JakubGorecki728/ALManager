@@ -61,4 +61,17 @@ exports.changeStateAssemblyLine = async (req, res, next) => {
     }
 };
 
+exports.assignProduct = async (req, res, next) => {
+    try {
+        const assignProductResponse = await AssemblyLine.assignProduct(req.params.id, req.params.product_id);
+        res.status(200).json(assignProductResponse);
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    }
+};
+
+
 

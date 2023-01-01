@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/User';
 import { AssemblyLine } from 'src/app/models/AssemblyLine';
 
+
+
 @Component({
   selector: 'app-assembly-lines',
   templateUrl: './assembly-lines.component.html',
@@ -16,6 +18,7 @@ import { AssemblyLine } from 'src/app/models/AssemblyLine';
 export class AssemblyLinesComponent implements OnInit{
   assemblyLines$!: Observable<AssemblyLine[]>;
   userId!: Pick<User, "id">;
+
 
   constructor (private assemblyLineService: AssemblyLineService, private authService: AuthService) {}
 
@@ -42,6 +45,16 @@ export class AssemblyLinesComponent implements OnInit{
     this.assemblyLineService
     .changeStateAssemblyLine(assemblyLineId)
     .subscribe(() => (this.assemblyLines$ = this.fetchAll()));
+  }
+
+  assignProduct(assemblyLineId: number, productId: number): void {
+    this.assemblyLineService
+    .assignProduct(assemblyLineId, productId)
+    .subscribe(() => (this.assemblyLines$ = this.fetchAll()));
+  }
+
+  removeProductAssignment(assemblyLineId: number): void {
+    this.assignProduct(assemblyLineId, 0);
   }
 
 

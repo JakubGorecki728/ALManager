@@ -1,6 +1,6 @@
 mat-card {
     margin-bottom: 1em;
-    font-size: 20px;
+    font-size: 16px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -25,14 +25,16 @@ div {
 
 .label {
     font-size: small;
-    margin: 1em;
+    font-weight: 100;
+    width: 15%;
+}
+
+.product-data {
+    max-width: 85%;
 }
 
 .textsubcontainer {
     display: flex;
     flex-direction: row;
-}
-
-div {
-    border: 1px solid black;
+    margin: 10px;
 }

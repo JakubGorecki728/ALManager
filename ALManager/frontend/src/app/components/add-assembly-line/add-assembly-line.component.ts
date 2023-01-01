@@ -1,21 +1,21 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import { Product } from 'src/app/models/Product';
-import { ProductService } from 'src/app/services/product.service';
+import { AssemblyLine } from 'src/app/models/AssemblyLine';
+import { AssemblyLineService } from 'src/app/services/assembly-line.service';
 
 @Component({
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  selector: 'app-add-assembly-line',
+  templateUrl: './add-assembly-line.component.html',
+  styleUrls: ['./add-assembly-line.component.css']
 })
-export class AddProductComponent implements OnInit{
+export class AddAssemblyLineComponent implements OnInit{
   @ViewChild("formDirective") formDirective!: NgForm;
   @Output() create: EventEmitter<any> = new EventEmitter();
   form!: FormGroup;
 
   constructor(
-    private productService: ProductService) {}
+    private assemblyLineService: AssemblyLineService) {}
 
   ngOnInit(): void {
     this.form = this.createFormGroup();
@@ -27,9 +27,9 @@ export class AddProductComponent implements OnInit{
     })
   }
 
-  onSubmit(formData: Pick<Product, "name">): void {
-    this.productService
-    .addProduct(formData)
+  onSubmit(formData: Pick<AssemblyLine, "name">): void {
+    this.assemblyLineService
+    .addAssemblyLine(formData)
     .pipe(first())
     .subscribe(() => {
       this.create.emit(null);

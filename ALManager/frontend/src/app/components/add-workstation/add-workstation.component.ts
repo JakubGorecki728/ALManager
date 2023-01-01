@@ -1,21 +1,21 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import { Product } from 'src/app/models/Product';
-import { ProductService } from 'src/app/services/product.service';
+import { Workstation } from 'src/app/models/Workstation';
+import { WorkstationService } from 'src/app/services/workstation.service';
 
 @Component({
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  selector: 'app-add-workstation',
+  templateUrl: './add-workstation.component.html',
+  styleUrls: ['./add-workstation.component.css']
 })
-export class AddProductComponent implements OnInit{
+export class AddWorkstationComponent implements OnInit{
   @ViewChild("formDirective") formDirective!: NgForm;
   @Output() create: EventEmitter<any> = new EventEmitter();
   form!: FormGroup;
 
   constructor(
-    private productService: ProductService) {}
+    private workstationService: WorkstationService) {}
 
   ngOnInit(): void {
     this.form = this.createFormGroup();
@@ -23,13 +23,15 @@ export class AddProductComponent implements OnInit{
 
   createFormGroup(): FormGroup {
     return new FormGroup({
+      short_name: new FormControl("", [Validators.required, Validators.minLength(1)]),
       name: new FormControl("", [Validators.required, Validators.minLength(1)]),
+      pc_name: new FormControl("", [Validators.required, Validators.minLength(1)]),
     })
   }
 
-  onSubmit(formData: Pick<Product, "name">): void {
-    this.productService
-    .addProduct(formData)
+  onSubmit(formData: Pick<Workstation, "short_name" | "name" | "pc_name">): void {
+    this.workstationService
+    .addWorkstation(formData)
     .pipe(first())
     .subscribe(() => {
       this.create.emit(null);

@@ -25,6 +25,8 @@ import { WorkstationsComponent } from './components/workstations/workstations.co
 import { AssemblyLinesComponent } from './components/assembly-lines/assembly-lines.component';
 import { ProductsComponent } from './components/products/products.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { AddWorkstationComponent } from './components/add-workstation/add-workstation.component';
+import { AddAssemblyLineComponent } from './components/add-assembly-line/add-assembly-line.component';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     AssemblyLinesComponent,
     ProductsComponent,
     AddProductComponent,
+    AddWorkstationComponent,
+    AddAssemblyLineComponent,
   ],
   imports: [
     BrowserModule,

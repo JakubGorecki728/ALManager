@@ -8,6 +8,10 @@ const postsRoutes = require('./routes/posts');
 
 const productsRoutes = require('./routes/products');
 
+const workstationsRoutes = require('./routes/workstations');
+
+const assemblyLinesRoutes = require('./routes/assemblyLines');
+
 const errorController = require('./controllers/error');
 
 const app = express();
@@ -28,6 +32,10 @@ app.use('/auth', authRoutes);
 app.use('/post', postsRoutes);
 
 app.use('/products', productsRoutes);
+
+app.use('/workstations', workstationsRoutes);
+
+app.use('/assembly-lines', assemblyLinesRoutes);
 
 app.use(errorController.get404);
 

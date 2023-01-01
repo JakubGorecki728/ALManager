@@ -1,1 +1,43 @@
-<p>workstations works!</p>
+<app-add-workstation (create)="addWorkstation()"></app-add-workstation>
+
+<mat-card *ngFor="let workstation of workstations$ | async">
+
+    <div class="textcontainer">
+
+        <div class="textsubcontainer">
+            <div class="label">Workstation short name:</div>
+            <div class="workstation-data">
+            {{workstation.short_name}}
+            </div>
+        </div>
+
+        <div class="textsubcontainer">
+            <div class="label">Workstation name:</div>
+            <div class="workstation-data">
+            {{workstation.name}}
+            </div>
+        </div>
+
+        <div class="textsubcontainer">
+            <div class="label">Workstation pc name:</div>
+            <div class="workstation-data">
+                {{workstation.pc_name}}
+            </div>
+        </div>
+
+        <div class="textsubcontainer">
+            <div class="label">Workstation id:</div>
+            <div class="workstation-data">
+            {{workstation.id}}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="buttoncontainer">
+        <button (click)="delete(workstation.id)" class="button" mat-icon-button>
+            <mat-icon color="warn">delete</mat-icon>
+            </button>
+    </div>
+
+</mat-card>

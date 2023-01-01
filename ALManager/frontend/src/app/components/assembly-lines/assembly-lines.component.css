@@ -1,0 +1,40 @@
+mat-card {
+    margin-bottom: 1em;
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 100%;
+  
+}
+
+.buttoncontainer {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.textcontainer {
+    width: 80%;
+}
+
+div {
+    word-wrap: break-word;
+}
+
+.label {
+    font-size: small;
+    font-weight: 100;
+    width: 15%;
+}
+
+.assembly-line-data {
+    max-width: 85%;
+}
+
+.textsubcontainer {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}

@@ -1,0 +1,28 @@
+<form 
+ [formGroup]="form" 
+ #formDirective="ngForm" 
+ (ngSubmit)="onSubmit(form.value)" 
+ novalidate>
+ 
+     <mat-form-field>
+
+      <mat-label>Workstation short name</mat-label>
+        <input matInput formControlName="short_name"/>
+     </mat-form-field>
+
+     <mat-form-field>
+        <mat-label>Workstation name</mat-label>
+        <input matInput formControlName="name"/>
+     </mat-form-field>
+
+     <mat-form-field>
+     <mat-label>Workstation pc name</mat-label>
+        <input matInput formControlName="pc_name"/>
+     </mat-form-field>
+ 
+     <button color="accent" [disabled]="!form.valid" mat-raised-button type="submit">
+        <span>Add workstation</span>
+     </button>
+ 
+ 
+ </form>

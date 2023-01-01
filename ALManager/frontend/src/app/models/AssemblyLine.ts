@@ -1,4 +1,4 @@
-export interface AsseblyLine {
+export interface AssemblyLine {
     id: number;
     name: string;
     active: boolean;

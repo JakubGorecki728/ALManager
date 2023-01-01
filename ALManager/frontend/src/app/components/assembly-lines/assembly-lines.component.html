@@ -1,1 +1,36 @@
-<p>assembly-lines works!</p>
+<app-add-assembly-line (create)="addAssemblyLine()"></app-add-assembly-line>
+
+<mat-card *ngFor="let assemblyLine of assemblyLines$ | async">
+
+    <div class="textcontainer">
+
+        <div class="textsubcontainer">
+            <div class="label">Assembly line name:</div>
+            <div class="assembly-line-data">
+            {{assemblyLine.name}}
+            </div>
+        </div>
+
+        <div class="textsubcontainer">
+            <div class="label">Active:</div>
+            <div class="assembly-line-data">
+                {{assemblyLine.active}}
+            </div>
+        </div>
+
+        <div class="textsubcontainer">
+            <div class="label">Assembly line id:</div>
+            <div class="assembly-line-data">
+            {{assemblyLine.id}}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="buttoncontainer">
+        <button (click)="delete(assemblyLine.id)" class="button" mat-icon-button>
+            <mat-icon color="warn">delete</mat-icon>
+            </button>
+    </div>
+
+</mat-card>

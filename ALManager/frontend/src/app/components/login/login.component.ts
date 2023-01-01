@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
@@ -11,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent {
   loginForm!: FormGroup;
 
-  constructor(private authService: AuthService) {};
+  constructor(private authService: AuthService, private router: Router) {};
 
   ngOnInit(): void {
     this.loginForm = this.createFormGroup();
@@ -27,7 +28,9 @@ export class LoginComponent {
   login(): void {
     this.authService
     .login(this.loginForm.value.email, this.loginForm.value.password)
-    .subscribe();
+    .subscribe(() => {
+      this.router.navigate(["products"]);
+    });
   }
   
 }

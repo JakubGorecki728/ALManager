@@ -46,4 +46,13 @@ export class AssemblyLineService {
       catchError(this.errorHandlerService.handleError<AssemblyLine>("deleteAssemblyLine"))
     )
   }
+
+  changeStateAssemblyLine(assemblyLineId: number): Observable<{}> {
+    return this.http
+    .put<AssemblyLine>(`${this.url}/${assemblyLineId}`, this.httpOptions)
+    .pipe(
+      first(),
+      catchError(this.errorHandlerService.handleError<AssemblyLine>("changeStateAssemblyLine"))
+    )
+  }
 }

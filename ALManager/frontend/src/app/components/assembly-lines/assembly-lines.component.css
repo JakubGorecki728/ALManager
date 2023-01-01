@@ -38,3 +38,11 @@ div {
     flex-direction: row;
     margin: 10px;
 }
+
+#active {
+    color: green;
+}
+
+#inactive {
+    color: red;
+}

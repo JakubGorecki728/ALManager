@@ -12,10 +12,14 @@
         </div>
 
         <div class="textsubcontainer">
-            <div class="label">Active:</div>
-            <div class="assembly-line-data">
-                {{assemblyLine.active}}
+            <div class="label">State:</div>
+
+            <div *ngIf="assemblyLine.active==true; else elseBlock" class="assembly-line-data" id="active">
+            active
             </div>
+            <ng-template #elseBlock class="assembly-line-data"> 
+            <div id="inactive">inactive</div> 
+            </ng-template>
         </div>
 
         <div class="textsubcontainer">
@@ -28,6 +32,10 @@
     </div>
 
     <div class="buttoncontainer">
+        <button (click)="changeState(assemblyLine.id)" color="accent" mat-raised-button>
+            <span>change<br>state</span>
+         </button>
+
         <button (click)="delete(assemblyLine.id)" class="button" mat-icon-button>
             <mat-icon color="warn">delete</mat-icon>
             </button>

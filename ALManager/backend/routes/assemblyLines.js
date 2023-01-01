@@ -21,4 +21,7 @@ router.post(
 router.delete(
     '/:id', auth, assemblyLinesController.deleteAssemblyLine);
 
+router.put(
+        '/:id', auth, assemblyLinesController.changeStateAssemblyLine);
+
 module.exports = router;

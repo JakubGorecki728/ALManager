@@ -49,4 +49,16 @@ exports.deleteAssemblyLine = async (req, res, next) => {
     }
 };
 
+exports.changeStateAssemblyLine = async (req, res, next) => {
+    try {
+        const changeStateResponse = await AssemblyLine.changeState(req.params.id);
+        res.status(200).json(changeStateResponse);
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    }
+};
+
 

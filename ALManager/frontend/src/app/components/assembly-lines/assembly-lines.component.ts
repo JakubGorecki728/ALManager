@@ -38,4 +38,11 @@ export class AssemblyLinesComponent implements OnInit{
     .subscribe(() => (this.assemblyLines$ = this.fetchAll()));
   }
 
+  changeState(assemblyLineId: number): void {
+    this.assemblyLineService
+    .changeStateAssemblyLine(assemblyLineId)
+    .subscribe(() => (this.assemblyLines$ = this.fetchAll()));
+  }
+
+
 } 

@@ -19,4 +19,8 @@ module.exports = class AssemblyLine {
     static delete(id) {
         return db.execute('DELETE FROM assembly_lines WHERE id = ?', [id])
     }
+
+    static changeState(id) {
+        return db.execute('UPDATE assembly_lines SET active = NOT active WHERE id = ?', [id])
+    }
 };

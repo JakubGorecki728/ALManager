@@ -1,5 +1,6 @@
 HOW TO RUN: 
-
+1. run the MySQL db (copy of the db is in db dump.zip) and set the config in backend/config/config.json if necesarry,
+2. run "npm install" and "npm start" commands in terminal, in "backend" and "frontend" subfolders.
 
 DESCRIPTION: app to manage assebly lines, made for recruitment purposes
 
@@ -25,7 +26,7 @@ UNFINISHED THINGS:
 - associative tables, backend and frontend for many to many relations between assemlby lines and workstations,
 - assigning product to assembly line on the frontend (backend works, but of the frontend there are only buttons with hardcoded product_id for testing pourposes. I was planning to create there some reactive combobox),
 - details like:
-    - keeping user logged in after refresh if token isnt expired (for the moment refreshing causes logout),
+    - keeping user logged in after refresh if a token isnt expired (for the moment refreshing causes logout),
     - possibility to update names of all elements and restrictions for deleting, when elements are in relationships,
     - improving styling,
     - filtering assebly lines by product.

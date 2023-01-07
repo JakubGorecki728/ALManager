@@ -30,7 +30,7 @@
         </div>
 
         <div class="textsubcontainer">
-            <div class="label">Assigned product id:</div>
+            <div class="label">Assigned product:</div>
             <div class="assembly-line-data">
             {{assemblyLine.product_id}}
             </div>
@@ -46,16 +46,28 @@
             </ng-template>
          </button>
 
-         <button (click)="assignProduct(assemblyLine.id, 46)" color="accent" mat-raised-button id="changeStateButton">
-            <span>assign product</span>
-         </button>
-
+         
+         <select 
+         id = "selectProduct"
+         *ngIf="assemblyLine.product_id==null; else elseBlock3"
+         (change)="assignProduct(assemblyLine.id, productId); productId = 0" 
+         [value] = "productId" 
+         [(ngModel)] = "productId">
+            <option [ngValue]="0" disabled>assign product</option> 
+            <option *ngFor="let product of products$ | async" [ngValue]="product.id">
+             {{product.name}} (id: {{product.id}})
+            </option>
+        </select>
+        
+        <ng-template #elseBlock3> 
          <button (click)="removeProductAssignment(assemblyLine.id)" color="accent" mat-raised-button id="changeStateButton">
             <span>remove assignment</span>
          </button>
+        </ng-template>
+        
 
-        <button (click)="delete(assemblyLine.id)" class="button" mat-icon-button>
-            <mat-icon color="warn">delete</mat-icon>
+        <button (click)="delete(assemblyLine.id)" class="button" mat-raised-button color="accent">
+            <span>delete assembly line</span>
             </button>
 
     </div>

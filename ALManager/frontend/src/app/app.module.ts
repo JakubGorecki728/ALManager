@@ -25,6 +25,8 @@ import { ProductsComponent } from './components/products/products.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { AddWorkstationComponent } from './components/add-workstation/add-workstation.component';
 import { AddAssemblyLineComponent } from './components/add-assembly-line/add-assembly-line.component';
+import { TestComponentComponent } from './components/test-component/test-component.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -39,6 +41,7 @@ import { AddAssemblyLineComponent } from './components/add-assembly-line/add-ass
     AddProductComponent,
     AddWorkstationComponent,
     AddAssemblyLineComponent,
+    TestComponentComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { AddAssemblyLineComponent } from './components/add-assembly-line/add-ass
     MatToolbarModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [
     {

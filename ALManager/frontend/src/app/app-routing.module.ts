@@ -10,10 +10,14 @@ import { ProductsComponent } from './components/products/products.component';
 import { AssemblyLinesComponent } from './components/assembly-lines/assembly-lines.component';
 import { WorkstationsComponent } from './components/workstations/workstations.component';
 
+import { TestComponentComponent } from './components/test-component/test-component.component';
+
 const routes: Routes = [
   { path: "products", component: ProductsComponent, canActivate: [AuthGuard]},
   { path: "assembly-lines", component: AssemblyLinesComponent, canActivate: [AuthGuard]},
   { path: "workstations", component: WorkstationsComponent, canActivate: [AuthGuard]},
+
+  { path: "test", component: TestComponentComponent},
 
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },

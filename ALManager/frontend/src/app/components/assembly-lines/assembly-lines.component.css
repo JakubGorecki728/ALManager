@@ -5,14 +5,21 @@ mat-card {
     flex-direction: row;
     justify-content: space-between;
     max-width: 100%;
+    user-select: none;
   
 }
 
 .buttoncontainer {
     width: 20%;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#selectProduct {
+    height: 35px;
+    text-align: center;
+    font-size: 15px;
 }
 
 .textcontainer {

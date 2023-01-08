@@ -12,6 +12,14 @@
         </div>
 
         <div class="textsubcontainer">
+            <div class="label">Assembly line id:</div>
+            <div class="assembly-line-data">
+            {{assemblyLine.id}}
+            </div>
+        </div>
+
+
+        <div class="textsubcontainer">
             <div class="label">State:</div>
 
             <div *ngIf="assemblyLine.active==true; else elseBlock" class="assembly-line-data" id="active">
@@ -22,30 +30,33 @@
             </ng-template>
         </div>
 
-        <div class="textsubcontainer">
-            <div class="label">Assembly line id:</div>
-            <div class="assembly-line-data">
-            {{assemblyLine.id}}
-            </div>
-        </div>
 
         <div class="textsubcontainer">
             <div class="label">Assigned product:</div>
-            <div class="assembly-line-data">
-            {{assemblyLine.product_id}}
+            <div class="assembly-line-data"
+            id="active"
+            *ngIf="assemblyLine.product_id>0; else elseBlock4">
+                {{productNamesAssoc[assemblyLine.product_id]}} (ID: {{assemblyLine.product_id}})
             </div>
+            <ng-template #elseBlock4> 
+                <span id="inactive">none</span>
+            </ng-template>
         </div>
 
     </div>
 
     <div class="buttoncontainer">
+
+        <button (click)="delete(assemblyLine.id)" class="button" mat-raised-button color="accent">
+            <span>delete assembly line</span>
+            </button>
+
         <button (click)="changeState(assemblyLine.id)" color="accent" mat-raised-button id="changeStateButton">
             <span *ngIf="assemblyLine.active==true; else elseBlock2">deactivate</span>
             <ng-template #elseBlock2> 
-                <span #elseBlock2>activate</span>
+                <span>activate</span>
             </ng-template>
          </button>
-
          
          <select 
          id = "selectProduct"
@@ -55,7 +66,7 @@
          [(ngModel)] = "productId">
             <option [ngValue]="0" disabled>assign product</option> 
             <option *ngFor="let product of products$ | async" [ngValue]="product.id">
-             {{product.name}} (id: {{product.id}})
+             {{product.name}} (ID: {{product.id}})
             </option>
         </select>
         
@@ -64,12 +75,7 @@
             <span>remove assignment</span>
          </button>
         </ng-template>
-        
-
-        <button (click)="delete(assemblyLine.id)" class="button" mat-raised-button color="accent">
-            <span>delete assembly line</span>
-            </button>
-
+    
     </div>
 
 </mat-card>

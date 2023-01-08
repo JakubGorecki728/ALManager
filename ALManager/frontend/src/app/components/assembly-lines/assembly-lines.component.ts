@@ -22,7 +22,7 @@ export class AssemblyLinesComponent implements OnInit{
   userId!: Pick<User, "id">;
   products$!: Observable<Product[]>;
   productId!: any;
-
+  productNamesAssoc!: string[];
 
   constructor (
     private assemblyLineService: AssemblyLineService, 
@@ -35,6 +35,7 @@ export class AssemblyLinesComponent implements OnInit{
     this.userId = this.authService.userId;
     this.products$ = this.fetchAllProducts();
     this.productId = 0;
+    this.productNamesAssoc = this.getProductNameAssocArray();
   }
 
   fetchAll(): Observable<AssemblyLine[]> {
@@ -43,6 +44,17 @@ export class AssemblyLinesComponent implements OnInit{
 
   fetchAllProducts(): Observable<Product[]> {
     return this.productService.fetchAll();
+  }
+
+
+  getProductNameAssocArray(): string[] {
+    let myarray: string[] = [];
+    this.products$.forEach(function (array){
+        array.forEach(function (innerArray) {
+          myarray[innerArray.id] = innerArray.name;
+        })
+      })
+      return myarray;
   }
 
   addAssemblyLine(): void {

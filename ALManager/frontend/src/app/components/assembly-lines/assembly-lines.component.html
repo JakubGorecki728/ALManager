@@ -49,7 +49,11 @@
 
         <button (click)="delete(assemblyLine.id)" class="button" mat-raised-button color="accent">
             <span>delete assembly line</span>
-            </button>
+        </button>
+
+        <button (click)="onOpenDialogClick(assemblyLine.id, assemblyLine.name)" class="button" mat-raised-button color="accent">
+            <span>rename assembly line</span>
+        </button>
 
         <button (click)="changeState(assemblyLine.id)" color="accent" mat-raised-button id="changeStateButton">
             <span *ngIf="assemblyLine.active==true; else elseBlock2">deactivate</span>

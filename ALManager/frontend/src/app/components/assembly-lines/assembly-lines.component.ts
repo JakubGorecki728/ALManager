@@ -9,6 +9,8 @@ import { User } from 'src/app/models/User';
 import { AssemblyLine } from 'src/app/models/AssemblyLine';
 import { ProductService } from 'src/app/services/product.service';
 import { Product } from 'src/app/models/Product';
+import { RenameDialogComponent } from '../rename-dialog/rename-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 
@@ -24,10 +26,13 @@ export class AssemblyLinesComponent implements OnInit{
   productId!: any;
   productNamesAssoc!: string[];
 
+  newName: string = "";
+
   constructor (
     private assemblyLineService: AssemblyLineService, 
     private authService: AuthService,
     private productService: ProductService,
+    private matDialog: MatDialog,
     ) {}
 
   ngOnInit(): void {
@@ -48,13 +53,13 @@ export class AssemblyLinesComponent implements OnInit{
 
 
   getProductNameAssocArray(): string[] {
-    let myarray: string[] = [];
+    let returnedArray: string[] = [];
     this.products$.forEach(function (array){
         array.forEach(function (innerArray) {
-          myarray[innerArray.id] = innerArray.name;
+          returnedArray[innerArray.id] = innerArray.name;
         })
       })
-      return myarray;
+      return returnedArray;
   }
 
   addAssemblyLine(): void {
@@ -83,5 +88,28 @@ export class AssemblyLinesComponent implements OnInit{
     this.assignProduct(assemblyLineId, 0);
   }
 
+  rename(assemblyLineId: number, assemblyLineName: string): void {
+    this.assemblyLineService
+    .renameAssemblyLine(assemblyLineId, assemblyLineName)
+    .subscribe(() => (this.assemblyLines$ = this.fetchAll()));
+  }
+
+
+  onOpenDialogClick(id: number, name: string){
+    let dialogRef = this.matDialog.open(RenameDialogComponent,
+      {
+        data: {
+          id: id,
+          name: name,
+        },
+        disableClose: true
+      }
+      );
+    dialogRef.afterClosed().subscribe(
+      result => {
+        this.rename(result.id, result.name);
+      }
+    )
+  }
 
 } 

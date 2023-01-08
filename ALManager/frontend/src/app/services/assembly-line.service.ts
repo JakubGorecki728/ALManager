@@ -49,7 +49,7 @@ export class AssemblyLineService {
 
   changeStateAssemblyLine(assemblyLineId: number): Observable<{}> {
     return this.http
-    .put<AssemblyLine>(`${this.url}/${assemblyLineId}`, this.httpOptions)
+    .put<AssemblyLine>(`${this.url}/${assemblyLineId}/change-state`, this.httpOptions)
     .pipe(
       first(),
       catchError(this.errorHandlerService.handleError<AssemblyLine>("changeStateAssemblyLine"))
@@ -58,10 +58,18 @@ export class AssemblyLineService {
 
   assignProduct(assemblyLineId: number, productId: number): Observable<{}> {
     return this.http
-    .put<AssemblyLine>(`${this.url}/${assemblyLineId}/${productId}`, this.httpOptions)
+    .put<AssemblyLine>(`${this.url}/${assemblyLineId}/assign-product/${productId}`, this.httpOptions)
     .pipe(
       first(),
       catchError(this.errorHandlerService.handleError<AssemblyLine>("assignProduct"))
     )
+  }
+
+  renameAssemblyLine(assemblyLineId: number, assemblyLineName: string): Observable<AssemblyLine> {
+    return this.http
+    .put<AssemblyLine>(`${this.url}/${assemblyLineId}/rename`, {name: assemblyLineName}, this.httpOptions)
+    .pipe(
+      catchError(this.errorHandlerService.handleError<AssemblyLine>("renameAssemblyLine"))
+    );
   }
 }

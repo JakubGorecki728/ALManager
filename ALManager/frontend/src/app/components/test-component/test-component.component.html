@@ -1,14 +1,1 @@
-<form 
- [formGroup]="form">
- 
-     <select formControlName="state" (change)="onSubmit()" value="www">
-
-      <option *ngFor="let state of states" [ngValue]="state">
-        {{state.name}}
-      </option>
-     </select>
- 
- 
- </form>
-
- <p>Form value: {{form.value | json }}</p>
+<button (click)="onOpenDialogClick()">Open Dialog</button>

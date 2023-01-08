@@ -1,9 +1,7 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
-import { Workstation } from 'src/app/models/Workstation';
-import { WorkstationService } from 'src/app/services/workstation.service';
-import { Product } from 'src/app/models/Product';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { RenameDialogComponent } from '../rename-dialog/rename-dialog.component';
+
 
 
 @Component({
@@ -12,31 +10,29 @@ import { Product } from 'src/app/models/Product';
   styleUrls: ['./test-component.component.css']
 })
 export class TestComponentComponent {
-  @ViewChild("formDirective") formDirective!: NgForm;
-  @Output() create: EventEmitter<any> = new EventEmitter();
-  form!: FormGroup;
+title = "test";
 
-  states = [
-    {name: "Arizona", abbrev: "AZ"},
-    {name: "California", abbrev: "CA"},
-    {name: "Colorado", abbrev: "CO"},
-    {name: "New York", abbrev: "NY"},
-  ];
+  constructor(private matDialog: MatDialog) {
 
-  constructor(
-    private workstationService: WorkstationService) {}
-
-  ngOnInit(): void {
-    this.form = this.createFormGroup();
   }
 
-  createFormGroup(): FormGroup {
-    return new FormGroup({
-      state: new FormControl(),
-    })
-  }
 
-  onSubmit(): void {
-    console.log("item selected: "+this.states)
+  onOpenDialogClick(){
+    let dialogRef = this.matDialog.open(RenameDialogComponent,
+      {
+        data: {
+          age: 1000,
+          name: "king",
+        },
+        width: "500px",
+        height: "500px",
+        disableClose: true
+      }
+      );
+    dialogRef.afterClosed().subscribe(
+      result => {
+        alert("data to get from dialog: " + result.name +" and " +result.age);
+      }
+    )
   }
 }

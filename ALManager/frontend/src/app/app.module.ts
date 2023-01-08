@@ -14,6 +14,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -27,6 +28,7 @@ import { AddWorkstationComponent } from './components/add-workstation/add-workst
 import { AddAssemblyLineComponent } from './components/add-assembly-line/add-assembly-line.component';
 import { TestComponentComponent } from './components/test-component/test-component.component';
 import { FormsModule } from '@angular/forms';
+import { RenameDialogComponent } from './components/rename-dialog/rename-dialog.component';
 
 
 @NgModule({
@@ -42,6 +44,7 @@ import { FormsModule } from '@angular/forms';
     AddWorkstationComponent,
     AddAssemblyLineComponent,
     TestComponentComponent,
+    RenameDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,7 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    MatDialogModule,
   ],
   providers: [
     {
